@@ -1,13 +1,11 @@
 package com.example.spoitorreplacement.Controller;
 
+import com.example.spoitorreplacement.Model.Dtos.UserRequestDto;
 import com.example.spoitorreplacement.Model.Entities.User;
 import com.example.spoitorreplacement.Model.Service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +21,16 @@ public class UserController {
 //    }
 
     @GetMapping("/getAllUser")
-    public ResponseEntity<ArrayList<User>> getAllUser() {
+    public ResponseEntity<List<User>> getAllUser() {
         return ResponseEntity.ok(userService.getAllUser());
     }
     @GetMapping("/{userName}")
     public ResponseEntity<List<User>> getUserById(@PathVariable String userName){
         return ResponseEntity.ok(userService.getUserByUsername(userName));
+    }
+    @PostMapping
+    public ResponseEntity<User> saveUser(@RequestBody UserRequestDto userRequestDto){
+        return ResponseEntity.ok(userService.saveUser(userRequestDto));
+
     }
 }

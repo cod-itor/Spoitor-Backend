@@ -1,5 +1,6 @@
 package com.example.spoitorreplacement.Model.Service.Impl;
 
+import com.example.spoitorreplacement.Model.Dtos.UserRequestDto;
 import com.example.spoitorreplacement.Model.Entities.User;
 import com.example.spoitorreplacement.Model.Service.UserService;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    ArrayList<User> userList = new ArrayList<>(
+    List<User> userList = new ArrayList<>(
             List.of(
                     new User("Coditor", "rector@gmail.com", "pass123", "Dita", "Rector", "012312", "Cambodia", "Phnom Penh", "Street 271"),
                     new User("TechGuru", "guru@example.com", "secure99", "Alice", "Smith", "098765", "USA", "New York", "5th Ave"),
@@ -25,7 +26,7 @@ public class UserServiceImpl implements UserService {
     );
 
     @Override
-    public ArrayList<User> getAllUser() {
+    public List<User> getAllUser() {
         return userList;
     }
     @Override
@@ -34,5 +35,23 @@ public class UserServiceImpl implements UserService {
                 .filter(n -> n.getUserName().toLowerCase().contains(userName.toLowerCase()))
                 .toList();
         return filterUsername ;
+
+    }
+    @Override
+    public User saveUser(UserRequestDto userRequestDto){
+        User newUser = new User(
+                        userRequestDto.getUserName(),
+                        userRequestDto.getEmail(),
+                        userRequestDto.getPassword(),
+                        userRequestDto.getFirstName(),
+                        userRequestDto.getLastName(),
+                        userRequestDto.getPhoneNumber(),
+                        userRequestDto.getCountry(),
+                        userRequestDto.getCity(),
+                        userRequestDto.getAddress()
+        );
+        userList.add(newUser);
+
+        return newUser;
     }
     }

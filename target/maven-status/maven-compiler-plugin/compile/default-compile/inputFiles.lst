@@ -1,5 +1,6 @@
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Controller/UserController.java
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Model/Config/UserConfig.java
+/Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Model/Dtos/UserRequestDto.java
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Model/Dtos/UserResponseDto.java
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Model/Entities/User.java
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Model/Repository/UserRepository.java

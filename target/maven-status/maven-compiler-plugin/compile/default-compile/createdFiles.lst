@@ -3,4 +3,5 @@ com/example/spoitorreplacement/Model/Dtos/UserResponseDto.class
 com/example/spoitorreplacement/Model/Entities/User.class
 com/example/spoitorreplacement/Model/Repository/UserRepository.class
 com/example/spoitorreplacement/Model/Service/UserService.class
+com/example/spoitorreplacement/Model/Dtos/UserRequestDto.class
 com/example/spoitorreplacement/Model/Service/Impl/UserServiceImpl.class
