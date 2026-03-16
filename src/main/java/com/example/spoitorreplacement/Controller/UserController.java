@@ -22,5 +22,9 @@ public class UserController {
     public ResponseEntity<List<User>> getAllUser(){
         return ResponseEntity.ok(userService.getAllUser());
     }
+    @GetMapping("{user-name}")
+    public ResponseEntity<User> getUserById(@PathVariable("user-name") String userName){
+        return ResponseEntity.ok(userService.getUserByName(userName));
+    }
 
 }

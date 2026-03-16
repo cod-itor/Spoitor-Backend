@@ -20,5 +20,10 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllUser() {
 //        int page  = (offset - 1)*size;
         return userRepository.getAllUser();
+
+    }
+    @Override
+    public User getUserByName(String userName){
+        return userRepository.getUserByName(userName);
     }
 }

@@ -2,6 +2,7 @@
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Controller/UserController.java
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Model/Entities/User.java
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Model/Request/UserRequestDto.java
+/Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Model/Response/ApiResponse.java
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Model/Response/UserResponseDto.java
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Repository/UserRepository.java
 /Users/ditarector/Desktop/ALLOFMYPROJECT/Spoitor/Backend/Spoitor-Backend/src/main/java/com/example/spoitorreplacement/Service/Impl/UserServiceImpl.java

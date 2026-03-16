@@ -1,7 +1,8 @@
+com/example/spoitorreplacement/Model/Response/ApiResponse.class
 com/example/spoitorreplacement/Model/Request/UserRequestDto.class
 com/example/spoitorreplacement/Config/UserConfig.class
 com/example/spoitorreplacement/Service/Impl/UserServiceImpl.class
+com/example/spoitorreplacement/Service/UserService.class
 com/example/spoitorreplacement/Model/Entities/User.class
 com/example/spoitorreplacement/Model/Response/UserResponseDto.class
 com/example/spoitorreplacement/Repository/UserRepository.class
-com/example/spoitorreplacement/Service/UserService.class

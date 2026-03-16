@@ -3,20 +3,24 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for spoitorReplacement" enabled="true">
+      <profile name="Annotation profile for spring" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
-        <module name="spoitorReplacement" />
+        <module name="spring" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spoitorReplacement" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="spoitorReplacement" options="-parameters" />
+      <module name="spring" options="-parameters" />
     </option>
   </component>
 </project>
