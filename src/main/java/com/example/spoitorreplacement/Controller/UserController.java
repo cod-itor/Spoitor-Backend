@@ -19,12 +19,16 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUser(){
-        return ResponseEntity.ok(userService.getAllUser());
+    public ResponseEntity<List<User>> getAllUser(@RequestBody int offset , @RequestBody Integer size ){
+        return ResponseEntity.ok(userService.getAllUser(offset, size));
     }
     @GetMapping("{user-name}")
     public ResponseEntity<User> getUserById(@PathVariable("user-name") String userName){
         return ResponseEntity.ok(userService.getUserByName(userName));
+    }
+    @PostMapping
+    public ResponseEntity<User> saveUser(@RequestBody UserRequestDto userRequestDto){
+        return ResponseEntity.ok(userService.saveUser(userRequestDto));
     }
 
 }
