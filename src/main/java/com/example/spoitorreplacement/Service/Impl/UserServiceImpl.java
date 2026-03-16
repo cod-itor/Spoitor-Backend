@@ -18,9 +18,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUser(int offset , Integer size) {
-        int page  = (offset - 1)*size;
-        return userRepository.getAllUser(page, size);
+    public List<User> getAllUser(Integer page , Integer size) {
+        Integer offset = size *(page - 1) ;
+        return userRepository.getAllUser(offset, size);
 
     }
     @Override

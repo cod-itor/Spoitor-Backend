@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
 
-   List<User> getAllUser(int offset , Integer size);
+   List<User> getAllUser(Integer offset , Integer size);
    User getUserByName(String userName);
    User saveUser(UserRequestDto userRequestDto);
 

@@ -2,15 +2,22 @@ package com.example.spoitorreplacement.Controller;
 
 import com.example.spoitorreplacement.Model.Request.UserRequestDto;
 import com.example.spoitorreplacement.Model.Entities.User;
+import com.example.spoitorreplacement.Model.Response.ApiResponse;
 import com.example.spoitorreplacement.Service.UserService;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tools.jackson.databind.ser.jdk.JDKKeySerializers;
 
+import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@Builder
 @RequestMapping("/api/v1/User")
 public class UserController {
     private final UserService userService;
@@ -19,8 +26,16 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUser(@RequestBody int offset , @RequestBody Integer size ){
-        return ResponseEntity.ok(userService.getAllUser(offset, size));
+    public ResponseEntity<ApiResponse<List<User>>> getAllUser(@RequestParam(defaultValue = "1") Integer page , @RequestParam(defaultValue = "5") Integer size ){
+        List<User> userList = userService.getAllUser(page , size);
+        ApiResponse<List<User>> response = ApiResponse.<List<User>>builder()
+                .success(true)
+                .messages("Fetched the Data")
+                .status(HttpStatus.OK)
+                .payload(userList)
+                .timestamp(Instant.now())
+                .build();
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
     @GetMapping("{user-name}")
     public ResponseEntity<User> getUserById(@PathVariable("user-name") String userName){
@@ -30,5 +45,6 @@ public class UserController {
     public ResponseEntity<User> saveUser(@RequestBody UserRequestDto userRequestDto){
         return ResponseEntity.ok(userService.saveUser(userRequestDto));
     }
+
 
 }

@@ -15,8 +15,8 @@ public interface UserRepository {
             @Result(property = "phoneNumber" , column = "phone_number")
     })
     //don't know how to fix this
-    @Select("SELECT * FROM users ORDER BY LIMIT #{req.size} OFFSET #{req.page} ")
-    List<User> getAllUser(@Param("req") int page , Integer size);
+    @Select("SELECT * FROM users OFFSET #{offset} LIMIT #{size} ")
+    List<User> getAllUser( Integer offset , Integer size);
     @ResultMap("userMapping")
     @Select("SELECT * FROM users WHERE username =  #{userName}")
     User getUserByName(String userName);
