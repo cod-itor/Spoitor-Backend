@@ -1,13 +1,12 @@
 package com.example.spoitorreplacement.Controller;
 
-import com.example.spoitorreplacement.Model.Dtos.UserRequestDto;
+import com.example.spoitorreplacement.Model.Request.UserRequestDto;
 import com.example.spoitorreplacement.Model.Entities.User;
-import com.example.spoitorreplacement.Model.Service.UserService;
+import com.example.spoitorreplacement.Service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

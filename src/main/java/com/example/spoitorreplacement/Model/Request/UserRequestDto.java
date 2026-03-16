@@ -1,4 +1,4 @@
-package com.example.spoitorreplacement.Model.Dtos;
+package com.example.spoitorreplacement.Model.Request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

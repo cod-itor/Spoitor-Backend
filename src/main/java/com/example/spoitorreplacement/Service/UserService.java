@@ -1,9 +1,8 @@
-package com.example.spoitorreplacement.Model.Service;
+package com.example.spoitorreplacement.Service;
 
-import com.example.spoitorreplacement.Model.Dtos.UserRequestDto;
+import com.example.spoitorreplacement.Model.Request.UserRequestDto;
 import com.example.spoitorreplacement.Model.Entities.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface UserService {

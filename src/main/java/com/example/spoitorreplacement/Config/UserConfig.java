@@ -1,4 +1,4 @@
-package com.example.spoitorreplacement.Model.Config;
+package com.example.spoitorreplacement.Config;
 
 import com.example.spoitorreplacement.Model.Entities.User;
 import org.springframework.context.annotation.Bean;

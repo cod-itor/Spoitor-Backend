@@ -1,8 +1,8 @@
-package com.example.spoitorreplacement.Model.Service.Impl;
+package com.example.spoitorreplacement.Service.Impl;
 
-import com.example.spoitorreplacement.Model.Dtos.UserRequestDto;
+import com.example.spoitorreplacement.Model.Request.UserRequestDto;
 import com.example.spoitorreplacement.Model.Entities.User;
-import com.example.spoitorreplacement.Model.Service.UserService;
+import com.example.spoitorreplacement.Service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
