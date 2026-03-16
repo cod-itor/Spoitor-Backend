@@ -25,10 +25,17 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public User getUserByName(String userName){
-        return userRepository.getUserByName(userName);
+        String userNameFilter = userName;
+        return userRepository.getUserByName(userNameFilter);
     }
     @Override
     public User saveUser(UserRequestDto userRequestDto){
         return userRepository.saveUser(userRequestDto);
+    }
+
+    @Override
+    public void deleteUserByName(String userName) {
+        userRepository.deleteUserByName(userName);
+
     }
 }

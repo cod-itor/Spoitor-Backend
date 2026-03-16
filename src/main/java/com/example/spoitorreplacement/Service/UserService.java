@@ -12,6 +12,8 @@ public interface UserService {
    User getUserByName(String userName);
    User saveUser(UserRequestDto userRequestDto);
 
+   void deleteUserByName(String userName);
+
 
 
 }
