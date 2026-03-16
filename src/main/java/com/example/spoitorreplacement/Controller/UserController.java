@@ -7,6 +7,7 @@ import com.example.spoitorreplacement.Service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import org.apache.coyote.Response;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,6 +46,16 @@ public class UserController {
     public ResponseEntity<User> saveUser(@RequestBody UserRequestDto userRequestDto){
         return ResponseEntity.ok(userService.saveUser(userRequestDto));
     }
-
+    @DeleteMapping("{user-name}")
+    public ApiResponse<String> deleteUserByName(@PathVariable("user-name") String userName){
+        userService.deleteUserByName(userName);
+        return  ApiResponse.<String>builder()
+                .success(true)
+                .messages("Deleted the Data")
+                .status(HttpStatus.OK)
+                .payload(null)
+                .timestamp(Instant.now())
+                .build();
+    }
 
 }

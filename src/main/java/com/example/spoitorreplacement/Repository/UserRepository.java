@@ -23,6 +23,6 @@ public interface UserRepository {
     @Select("INSERT INTO users VALUES (default, #{req.userName}, #{req.email}, #{req.password}, #{req.firstName}, #{req.lastName}, #{req.phoneNumber}, #{req.country}, #{req.city}, #{req.address}) RETURNING *")
     User saveUser(@Param("req") UserRequestDto userRequestDto);
 
-
-
+@Delete("DELETE FROM users WHERE username = #{userName}")
+    void deleteUserByName(String userName);
 }
