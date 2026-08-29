@@ -1,34 +1,34 @@
 package com.example.spoitorreplacement.Controller;
 
-import com.example.spoitorreplacement.Model.Request.UserRequestDto;
 import com.example.spoitorreplacement.Model.Entities.User;
+import com.example.spoitorreplacement.Model.Request.UserRequestDto;
 import com.example.spoitorreplacement.Model.Response.ApiResponse;
 import com.example.spoitorreplacement.Service.UserService;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import org.apache.coyote.Response;
-import org.apache.ibatis.annotations.Delete;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tools.jackson.databind.ser.jdk.JDKKeySerializers;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@Builder
 @RequestMapping("/api/v1/User")
+@Tag(name = "User Management", description = "Endpoints for managing users")
 public class UserController {
     private final UserService userService;
+
     public UserController(UserService userService){
         this.userService = userService;
     }
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<User>>> getAllUser(@RequestParam(defaultValue = "1") Integer page , @RequestParam(defaultValue = "5") Integer size ){
-        List<User> userList = userService.getAllUser(page , size);
+    @Operation(summary = "Get all users", description = "Retrieve a paginated list of users")
+    public ResponseEntity<ApiResponse<List<User>>> getAllUser(
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam(defaultValue = "5") Integer size) {
+        List<User> userList = userService.getAllUser(page, size);
         ApiResponse<List<User>> response = ApiResponse.<List<User>>builder()
                 .success(true)
                 .messages("Fetched the Data")
@@ -38,15 +38,21 @@ public class UserController {
                 .build();
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
+
     @GetMapping("{user-name}")
+    @Operation(summary = "Get user by username", description = "Retrieve user details by username")
     public ResponseEntity<User> getUserById(@PathVariable("user-name") String userName){
         return ResponseEntity.ok(userService.getUserByName(userName));
     }
+
     @PostMapping
+    @Operation(summary = "Create user", description = "Create a new user in the system")
     public ResponseEntity<User> saveUser(@RequestBody UserRequestDto userRequestDto){
         return ResponseEntity.ok(userService.saveUser(userRequestDto));
     }
+
     @PutMapping("{user-name}")
+    @Operation(summary = "Update user", description = "Update an existing user's information by username")
     public ResponseEntity<ApiResponse<User>> updateUserByName(
             @PathVariable("user-name") String userName,
             @RequestBody UserRequestDto userRequestDto) {
@@ -62,9 +68,10 @@ public class UserController {
     }
 
     @DeleteMapping("{user-name}")
+    @Operation(summary = "Delete user", description = "Delete a user from the system by username")
     public ApiResponse<String> deleteUserByName(@PathVariable("user-name") String userName){
         userService.deleteUserByName(userName);
-        return  ApiResponse.<String>builder()
+        return ApiResponse.<String>builder()
                 .success(true)
                 .messages("Deleted the Data")
                 .status(HttpStatus.OK)
@@ -72,5 +79,4 @@ public class UserController {
                 .timestamp(Instant.now())
                 .build();
     }
-
 }

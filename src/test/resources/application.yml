@@ -1,0 +1,15 @@
+spring:
+    application:
+        name: spoitorReplacementTest
+    datasource:
+        url: 
+        driverClassName: org.h2.Driver
+        username: sa
+        password: 
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: create-drop
+    sql:
+        init:
+            mode: never
