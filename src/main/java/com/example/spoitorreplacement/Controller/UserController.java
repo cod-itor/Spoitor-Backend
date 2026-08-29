@@ -46,6 +46,21 @@ public class UserController {
     public ResponseEntity<User> saveUser(@RequestBody UserRequestDto userRequestDto){
         return ResponseEntity.ok(userService.saveUser(userRequestDto));
     }
+    @PutMapping("{user-name}")
+    public ResponseEntity<ApiResponse<User>> updateUserByName(
+            @PathVariable("user-name") String userName,
+            @RequestBody UserRequestDto userRequestDto) {
+        User updatedUser = userService.updateUserByName(userName, userRequestDto);
+        ApiResponse<User> response = ApiResponse.<User>builder()
+                .success(true)
+                .messages("Updated the User")
+                .status(HttpStatus.OK)
+                .payload(updatedUser)
+                .timestamp(Instant.now())
+                .build();
+        return ResponseEntity.status(HttpStatus.OK).body(response);
+    }
+
     @DeleteMapping("{user-name}")
     public ApiResponse<String> deleteUserByName(@PathVariable("user-name") String userName){
         userService.deleteUserByName(userName);

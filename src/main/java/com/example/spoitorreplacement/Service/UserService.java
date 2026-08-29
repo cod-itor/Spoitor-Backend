@@ -11,7 +11,7 @@ public interface UserService {
    List<User> getAllUser(Integer offset , Integer size);
    User getUserByName(String userName);
    User saveUser(UserRequestDto userRequestDto);
-
+   User updateUserByName(String userName, UserRequestDto userRequestDto);
    void deleteUserByName(String userName);
 
 

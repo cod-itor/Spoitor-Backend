@@ -34,8 +34,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User updateUserByName(String userName, UserRequestDto userRequestDto) {
+        return userRepository.updateUserByName(userName, userRequestDto);
+    }
+
+    @Override
     public void deleteUserByName(String userName) {
         userRepository.deleteUserByName(userName);
-
     }
 }
